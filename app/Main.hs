@@ -119,8 +119,8 @@ updateModel = \case
     clearer Local = clearLocalStorage
     clearer Session = clearSessionStorage
 -----------------------------------------------------------------------------
-viewModel :: () -> () -> Model -> View () Model Action
-viewModel _ _ m =
+viewModel :: Model -> View () () Model Action
+viewModel m =
   H.div_
   [ P.class_ "app" ]
   [ H.header_
@@ -163,7 +163,7 @@ areaCard
   -> [(MisoString, MisoString)]
   -> MisoString
   -> MisoString
-  -> View () Model Action
+  -> View () () Model Action
 areaCard area title hint items keyVal valVal =
   H.section_
   [ P.class_ "card" ]
